@@ -1,0 +1,44 @@
+{
+  "heros": [
+    {
+      "id": "1",
+      "name": "Rishabh Singh Sirmour",
+      "username": "rishabh@123",
+      "phone": 8985965986,
+      "email": "rishabhsingh@gmail.com"
+    },
+    {
+      "id": "2",
+      "name": "Ravi Kumar Singh",
+      "username": "rishabh@123",
+      "phone": 8985965986,
+      "email": "rishabhsingh@gmail.com"
+    },
+    {
+      "id": "3",
+      "name": "Manish Singh Sisodiya",
+      "username": "rishabh@123",
+      "phone": 8985965986,
+      "email": "rishabhsingh@gmail.com"
+    },
+    {
+      "id": "4",
+      "name": "Thakur Sanu Singh",
+      "username": "rishabh@123",
+      "phone": 8985965986,
+      "email": "rishabhsingh@gmail.com"
+    }
+  ],
+  "heroes": [
+    {
+      "id": "1",
+      "title": "Hero1",
+      "author": "Amit"
+    },
+    {
+      "id": "2",
+      "title": "Hero2",
+      "author": "Mohit"
+    }
+  ]
+}
