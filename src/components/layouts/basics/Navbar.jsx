@@ -52,6 +52,19 @@ const Navbar = () => {
       >
         RQHeros
       </Link>
+      <Link
+        style={{
+          margin: "5px",
+          textDecoration: "none",
+          background: "#6d6d6d",
+          padding: "8px 12px",
+          color: "white",
+          borderRadius: "8px",
+        }}
+        to="reacthookform"
+      >
+        ReactHookForm
+      </Link>
     </nav>
   );
 };

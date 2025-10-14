@@ -7,3 +7,20 @@
   background-color: #3a3a3a;
   color: #6d6d6d;
 }
+.error {
+  color: red;
+  font-size: 16px;
+}
+.form-control {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  margin-bottom: 10px;
+}
+.show {
+  display: flex;
+}
+.hide {
+  display: none;
+}
