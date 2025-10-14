@@ -1,9 +1,18 @@
 import { useQuery, useMutation, useQueryClient } from "react-query";
 import axios from "axios";
 import { request } from "../utils/axiosUtils";
+import { useState } from "react";
 
 const RQHeros = () => {
   const queryClient = useQueryClient();
+
+  const [form, setForm] = useState({
+    id: "",
+    name: "",
+    username: "",
+    phone: "",
+    email: "",
+  });
 
   // ---------------- SUCCESS / ERROR HANDLERS ----------------
   const onSuccess = (data) => {
@@ -35,10 +44,10 @@ const RQHeros = () => {
     const count = (data?.length || 0) + 1;
     const payload = {
       id: `${count}`,
-      name: `Rahul Singh Chauhan ${count}`,
-      username: `rishabh@${count}`,
-      phone: `89859650${count}`,
-      email: `rishabhsingh${count}@gmail.com`,
+      name: form.name,
+      username: form.username,
+      phone: form.phone,
+      email: form.email,
     };
     // return axios.post("http://localhost:5500/heros", payload);
     return request({ url: "/heros", method: "POST", data: payload });
@@ -93,10 +102,48 @@ const RQHeros = () => {
   if (isError) return <div>{error.message}</div>;
   if (isLoading || isFetching) return <div>Loading.....</div>;
 
+  const handlFormChange = (event) => {
+    const { name, value } = event.target;
+
+    setForm((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
   return (
     <div>
       <h2>RQHeros</h2>
       <button onClick={refetch}>Fetch Data</button>
+      <br />
+      <input
+        type="text"
+        name="name"
+        placeholder="Enter name"
+        value={form.name}
+        onChange={handlFormChange}
+      />
+      <input
+        type="text"
+        name="username"
+        placeholder="Enter username"
+        value={form.username}
+        onChange={handlFormChange}
+      />
+      <input
+        type="text"
+        name="phone"
+        placeholder="Enter phone"
+        value={form.phone}
+        onChange={handlFormChange}
+      />
+      <input
+        type="email"
+        name="email"
+        placeholder="Enter email"
+        value={form.email}
+        onChange={handlFormChange}
+      />
       <button onClick={() => addData()} disabled={isAdding}>
         {isAdding ? "Adding..." : "Add Data"}
       </button>
