@@ -1,5 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from "react-query";
 import axios from "axios";
+import { request } from "../utils/axiosUtils";
 
 const RQHeros = () => {
   const queryClient = useQueryClient();
@@ -14,7 +15,10 @@ const RQHeros = () => {
   };
 
   // ---------------- FETCH HEROS (READ) ----------------
-  const fetchData = () => axios.get("http://localhost:5500/heros");
+  const fetchData = () => {
+    //  return axios.get("http://localhost:5500/heros");
+    return request({ url: "/heros" });
+  };
 
   const { isLoading, isFetching, data, isError, error, refetch } = useQuery(
     "fetch-heros",
@@ -36,7 +40,8 @@ const RQHeros = () => {
       phone: `89859650${count}`,
       email: `rishabhsingh${count}@gmail.com`,
     };
-    return axios.post("http://localhost:5500/heros", payload);
+    // return axios.post("http://localhost:5500/heros", payload);
+    return request({ url: "/heros", method: "POST", data: payload });
   };
 
   const { mutate: addData, isLoading: isAdding } = useMutation(addNewData, {
@@ -51,14 +56,14 @@ const RQHeros = () => {
 
   // ---------------- UPDATE HEROS (EDIT) ----------------
   const editData = async (id) => {
-    debugger;
     const payload = {
       name: `ABCD_${id}`,
       username: `abcde@123_${id}`,
       phone: `789654123${id}`,
       email: `abcde${id}@gmail.com`,
     };
-    return axios.patch(`http://localhost:5500/heros/${id}`, payload);
+    // return axios.patch(`http://localhost:5500/heros/${id}`, payload);
+    return request({ url: `/heros/${id}`, method: "PATCH", data: payload });
   };
 
   const { mutate: edit, isLoading: isEditing } = useMutation(editData, {
@@ -75,7 +80,8 @@ const RQHeros = () => {
 
   // --------------- DELETE HEROS DATA ---------------------
   const deleteHeros = (id) => {
-    return axios.delete(`http://localhost:5500/heros/${id}`);
+    // return axios.delete(`http://localhost:5500/heros/${id}`);
+    return request({ url: `/heros/${id}`, method: "DELETE" });
   };
 
   const { mutate: del, isLoading: isDeleting } = useMutation(deleteHeros, {
