@@ -48,7 +48,7 @@ const Navbar = () => {
           color: "white",
           borderRadius: "8px",
         }}
-        to="rqheros"
+        to="/rqheros"
       >
         RQHeros
       </Link>
@@ -61,9 +61,35 @@ const Navbar = () => {
           color: "white",
           borderRadius: "8px",
         }}
-        to="reacthookform"
+        to="/reacthookform"
       >
         ReactHookForm
+      </Link>
+      <Link
+        style={{
+          margin: "5px",
+          textDecoration: "none",
+          background: "#6d6d6d",
+          padding: "8px 12px",
+          color: "white",
+          borderRadius: "8px",
+        }}
+        to="/debounce"
+      >
+        Debouncing
+      </Link>
+      <Link
+        style={{
+          margin: "5px",
+          textDecoration: "none",
+          background: "#6d6d6d",
+          padding: "8px 12px",
+          color: "white",
+          borderRadius: "8px",
+        }}
+        to="/hooks"
+      >
+        Hooks
       </Link>
     </nav>
   );

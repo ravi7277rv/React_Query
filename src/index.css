@@ -1,12 +1,11 @@
+@import "tailwindcss";
+
 :root {
-  color: #d3d3d3;
+  color: white;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: #242424;
 }
-.col {
-  background-color: #3a3a3a;
-  color: #6d6d6d;
-}
+
 .error {
   color: red;
   font-size: 16px;

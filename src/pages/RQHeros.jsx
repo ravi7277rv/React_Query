@@ -1,5 +1,4 @@
 import { useQuery, useMutation, useQueryClient } from "react-query";
-import axios from "axios";
 import { request } from "../utils/axiosUtils";
 import { useState } from "react";
 
